@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estheva Aesthetics — Beautify & Rejuvenate</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --red: #D32F2F;
+      --red-light: #E53935;
+      --red-dark: #B71C1C;
+      --blush: #FFF0F0;
+      --blush-deep: #FFE0E0;
+      --cream: #FFFAF9;
+      --white: #FFFFFF;
+      --charcoal: #1A1A1A;
+      --gray: #6B6B6B;
+      --gray-light: #A8A8A8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    /* ── Utility ── */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 4rem)
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0)
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      transition: all .5s cubic-bezier(.23, 1, .32, 1)
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 40px rgba(0, 0, 0, .06);
+      padding: .75rem 0
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      transition: transform .3s ease
+    }
+
+    .logo:hover .logo-img {
+      transform: scale(1.05)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--charcoal);
+      position: relative;
+      font-weight: 400;
+      transition: color .3s
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--red);
+      transition: width .35s cubic-bezier(.23, 1, .32, 1)
+    }
+
+    .nav-links a:hover {
+      color: var(--red)
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: .7rem 1.8rem;
+      border-radius: 100px;
+      font-weight: 500;
+      letter-spacing: .1em !important;
+      transition: all .35s !important
+    }
+
+    .nav-cta::after {
+      display: none !important
+    }
+
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(211, 47, 47, .3)
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      transition: all .3s
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream)
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--cream);
+      z-index: 0
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 1
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out, transform 8s linear;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: .06;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .3) 1px, transparent 0);
+      background-size: 40px 40px;
+      z-index: 2
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(211, 47, 47, .15) 0%, transparent 70%);
+      top: 20%;
+      right: -10%;
+      animation: glowPulse 8s ease-in-out infinite;
+      z-index: 2
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 224, 224, .08) 0%, transparent 70%);
+      bottom: 10%;
+      left: 5%;
+      animation: glowPulse 6s ease-in-out 2s infinite;
+      z-index: 2
+    }
+
+    @keyframes glowPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .6
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 1
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 8rem 0 4rem
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--charcoal)
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.05;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--red);
+      font-weight: 400
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: var(--red);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all .4s cubic-bezier(.23, 1, .32, 1);
+      border: none;
+      cursor: pointer
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(211, 47, 47, .35)
+    }
+
+    .btn-primary svg {
+      transition: transform .3s
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px)
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: transparent;
+      color: var(--charcoal);
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid var(--charcoal);
+      transition: all .4s;
+      cursor: pointer
+    }
+
+    .btn-outline:hover {
+      border-color: var(--red);
+      color: var(--red)
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 4rem;
+      padding: 3rem 0;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08)
+    }
+
+    .stat {
+      text-align: left
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--charcoal)
+    }
+
+    .stat-number span {
+      color: var(--red)
+    }
+
+    .stat-label {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-top: .25rem;
+      font-weight: 500
+    }
+
+    .hero-scroll {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .5rem;
+      color: var(--charcoal);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 500
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--red-light), transparent);
+      animation: scrollLine 2s ease-in-out infinite
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top
+      }
+
+      51% {
+        transform: scaleY(1);
+        transform-origin: bottom
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom
+      }
+    }
+
+    /* ── Section Styling ── */
+    .section {
+      padding: clamp(5rem, 10vw, 8rem) 0
+    }
+
+    .section-tag {
+      font-size: .75rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--red)
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--red)
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 540px;
+      font-weight: 300
+    }
+
+    /* ── Services ── */
+    .services {
+      background: var(--white)
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem
+    }
+
+    .services-header .section-tag {
+      justify-content: center
+    }
+
+    .services-header .section-tag::before {
+      display: none
+    }
+
+    .services-header .section-subtitle {
+      margin: 0 auto
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem
+    }
+
+    .service-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .5s cubic-bezier(.23, 1, .32, 1);
+      background: var(--cream);
+      border: 1px solid rgba(0, 0, 0, .04)
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .08)
+    }
+
+    .service-card-visual {
+      height: 220px;
+      overflow: hidden;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.23, 1, .32, 1)
+    }
+
+    .service-card:hover .service-card-img {
+      transform: scale(1.1)
+    }
+
+    .service-icon-wrap {
+      /* fallback for cards without images if needed */
+      font-size: 2rem;
+      color: var(--red);
+      opacity: .5
+    }
+
+    .service-card:hover .service-icon-wrap {
+      transform: scale(1.1)
+    }
+
+    .service-card:nth-child(1) .service-card-visual {
+      background: linear-gradient(135deg, #fff5f5, #ffe0e0)
+    }
+
+    .service-card:nth-child(2) .service-card-visual {
+      background: linear-gradient(135deg, #fff5f0, #ffe8d6)
+    }
+
+    .service-card:nth-child(3) .service-card-visual {
+      background: linear-gradient(135deg, #fff8f0, #ffedd5)
+    }
+
+    .service-card:nth-child(4) .service-card-visual {
+      background: linear-gradient(135deg, #f5f0ff, #ede5ff)
+    }
+
+    .service-card:nth-child(5) .service-card-visual {
+      background: linear-gradient(135deg, #f0f8ff, #dbeafe)
+    }
+
+    .service-card:nth-child(6) .service-card-visual {
+      background: linear-gradient(135deg, #fdf2f8, #fce7f3)
+    }
+
+    .service-card-body {
+      padding: 1.75rem
+    }
+
+    .service-card-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: .5rem
+    }
+
+    .service-card-desc {
+      font-size: .88rem;
+      color: var(--gray);
+      line-height: 1.6;
+      font-weight: 300
+    }
+
+    .service-card-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(0, 0, 0, .06)
+    }
+
+    .service-card-from {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray-light)
+    }
+
+    .service-card-amount {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--red)
+    }
+
+    .service-card-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s;
+      color: var(--red)
+    }
+
+    .service-card:hover .service-card-arrow {
+      background: var(--red);
+      color: var(--white)
+    }
+
+    /* ── About ── */
+    .about {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center
+    }
+
+    .about-visual {
+      position: relative
+    }
+
+    .about-image-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--blush-deep), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .about-logo-large {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      font-style: italic;
+      color: var(--red);
+      font-weight: 400;
+      z-index: 1
+    }
+
+    .about-logo-sub {
+      font-family: var(--font-body);
+      font-size: .9rem;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      color: var(--gray);
+      display: block;
+      text-align: center;
+      margin-top: -.5rem
+    }
+
+    .about-circle {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(211, 47, 47, .12);
+      border-radius: 50%;
+      animation: spinSlow 30s linear infinite
+    }
+
+    .about-circle-2 {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(211, 47, 47, .06);
+      border-radius: 50%;
+      animation: spinSlow 40s linear infinite reverse
+    }
+
+    @keyframes spinSlow {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .about-float {
+      position: absolute;
+      right: -30px;
+      bottom: 60px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, .08);
+      z-index: 3
+    }
+
+    .about-float-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--red)
+    }
+
+    .about-float-text {
+      font-size: .75rem;
+      color: var(--gray);
+      letter-spacing: .05em
+    }
+
+    .about-content .section-subtitle {
+      margin-bottom: 2.5rem
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem
+    }
+
+    .about-feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start
+    }
+
+    .about-feature-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 1.1rem
+    }
+
+    .about-feature h4 {
+      font-size: .95rem;
+      font-weight: 500;
+      margin-bottom: .25rem
+    }
+
+    .about-feature p {
+      font-size: .85rem;
+      color: var(--gray);
+      line-height: 1.6;
+      font-weight: 300
+    }
+
+    /* ── Pricing Modal / Tables ── */
+    .pricing {
+      background: var(--white)
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 4rem
+    }
+
+    .pricing-header .section-tag {
+      justify-content: center
+    }
+
+    .pricing-header .section-tag::before {
+      display: none
+    }
+
+    .pricing-header .section-subtitle {
+      margin: 0 auto
+    }
+
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap
+    }
+
+    .pricing-tab {
+      padding: .7rem 1.8rem;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, .1);
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .3s;
+      color: var(--gray);
+      font-weight: 400
+    }
+
+    .pricing-tab.active {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red)
+    }
+
+    .pricing-tab:hover:not(.active) {
+      border-color: var(--red);
+      color: var(--red)
+    }
+
+    .pricing-table-wrap {
+      max-width: 800px;
+      margin: 0 auto
+    }
+
+    .pricing-desc {
+      text-align: center;
+      font-size: .95rem;
+      color: var(--gray);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      padding: 0 1rem
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    .pricing-table thead th {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      font-weight: 500;
+      padding: .75rem 1rem;
+      border-bottom: 2px solid var(--blush);
+      text-align: left
+    }
+
+    .pricing-table thead th:last-child {
+      text-align: right
+    }
+
+    .pricing-table tbody tr {
+      transition: background .2s
+    }
+
+    .pricing-table tbody tr:hover {
+      background: var(--blush)
+    }
+
+    .pricing-table tbody td {
+      padding: 1rem;
+      font-size: .92rem;
+      border-bottom: 1px solid rgba(0, 0, 0, .04)
+    }
+
+    .pricing-table tbody td:first-child {
+      color: var(--gray-light);
+      font-size: .8rem;
+      width: 40px
+    }
+
+    .pricing-table tbody td:last-child {
+      text-align: right;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--red)
+    }
+
+    .pricing-panel {
+      display: none
+    }
+
+    .pricing-panel.active {
+      display: block
+    }
+
+    /* ── Testimonials / Trust ── */
+    .trust {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden
+    }
+
+    .trust-bg {
+      position: absolute;
+      inset: 0;
+      opacity: .3;
+      background: radial-gradient(ellipse at 80% 50%, var(--blush-deep), transparent 60%)
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .trust-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all .4s;
+      border: 1px solid rgba(0, 0, 0, .03)
+    }
+
+    .trust-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .06)
+    }
+
+    .trust-stars {
+      color: var(--red);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.25rem
+    }
+
+    .trust-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      font-weight: 400
+    }
+
+    .trust-author {
+      display: flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .trust-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--red);
+      font-size: .9rem
+    }
+
+    .trust-name {
+      font-size: .85rem;
+      font-weight: 500
+    }
+
+    .trust-role {
+      font-size: .75rem;
+      color: var(--gray)
+    }
+
+    /* ── Contact ── */
+    .contact {
+      background: var(--cream);
+      color: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 0, 0, .05)
+    }
+
+    .contact-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(211, 47, 47, .06) 0%, transparent 70%);
+      bottom: -200px;
+      right: -100px
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .contact .section-tag {
+      color: var(--red)
+    }
+
+    .contact .section-title {
+      color: var(--charcoal)
+    }
+
+    .contact .section-subtitle {
+      color: var(--gray)
+    }
+
+    .contact-info {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      background: rgba(211, 47, 47, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red-light);
+      font-size: 1.1rem
+    }
+
+    .contact-item h4 {
+      font-size: .9rem;
+      font-weight: 500;
+      margin-bottom: .25rem;
+      color: var(--charcoal)
+    }
+
+    .contact-item p {
+      font-size: .88rem;
+      color: var(--gray);
+      line-height: 1.5
+    }
+
+    .contact-item a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color .3s
+    }
+
+    .contact-item a:hover {
+      color: var(--red)
+    }
+
+    .contact-hours {
+      margin-top: 2.5rem
+    }
+
+    .contact-hours h4 {
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 1rem
+    }
+
+    .hours-grid {
+      display: grid;
+      gap: .5rem
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .88rem;
+      padding: .4rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .05)
+    }
+
+    .hours-day {
+      color: var(--gray)
+    }
+
+    .hours-time {
+      color: var(--charcoal)
+    }
+
+    .hours-time.closed {
+      color: var(--red)
+    }
+
+    .contact-form {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .04)
+    }
+
+    .contact-form h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: .5rem
+    }
+
+    .contact-form p {
+      font-size: .88rem;
+      color: var(--gray);
+      margin-bottom: 2rem
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: .5rem;
+      font-weight: 400
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: .9rem 1.25rem;
+      background: var(--cream);
+      border: 1px solid rgba(0, 0, 0, .05);
+      border-radius: 12px;
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: .92rem;
+      transition: all .3s;
+      outline: none
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(211, 47, 47, .05)
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: .5rem
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--cream);
+      border-top: 1px solid rgba(0, 0, 0, .05);
+      padding: 4rem 0;
+      color: var(--gray)
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--red);
+      font-weight: 500
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--red-light)
+    }
+
+    .footer-copy {
+      font-size: .8rem
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: .8rem;
+      transition: all .3s
+    }
+
+    .footer-social a:hover {
+      border-color: var(--red-light);
+      color: var(--red-light)
+    }
+
+    /* ── Scroll Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .8s cubic-bezier(.23, 1, .32, 1)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s
+    }
+
+    .reveal-delay-4 {
+      transition-delay: .4s
+    }
+
+    .reveal-delay-5 {
+      transition-delay: .5s
+    }
+
+    /* ── Responsive ── */
+    @media(max-width:1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem
+      }
+
+      .hero-stats {
+        gap: 2.5rem;
+        flex-wrap: wrap
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2rem;
+        transition: right .4s cubic-bezier(.23, 1, .32, 1);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, .1)
+      }
+
+      .nav-links.open {
+        right: 0
+      }
+
+      .nav-toggle {
+        display: flex;
+        z-index: 101
+      }
+
+      .nav-cta {
+        margin-top: 1rem
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+
+      .pricing-tabs {
+        gap: .35rem
+      }
+
+      .pricing-tab {
+        padding: .5rem 1.2rem;
+        font-size: .7rem
+      }
+    }
+
+    /* ── Mobile nav overlay ── */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .4);
+      z-index: 98;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s
+    }
+
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <img src="estevalogo.png" alt="Estheva Aesthetics Logo" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a
+            href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
+            target="_blank" class="nav-cta">Book Now</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('face_mask.png')"></div>
+      <div class="hero-slide" style="background-image: url('head_massage.png')"></div>
+      <div class="hero-slide" style="background-image: url('henna_design.png')"></div>
+    </div>
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Seaside, California</div>
+        <h1 class="hero-title">Beautify &<br><em>Rejuvenate</em><br>Yourself</h1>
+        <p class="hero-desc">Specializing in Eyebrow Threading, Body Waxing, Skin Treatments, Henna Art, and Therapeutic
+          Massage.</p>
+        <div class="hero-actions">
+          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
+            target="_blank" class="btn-primary">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></a>
+          <a href="#pricing" class="btn-outline">View Pricing</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">5<span>+</span></div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">10k<span>+</span></div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Service Categories</div>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <span>Scroll</span>
+          <div class="hero-scroll-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">The <em>Best</em> For You</h2>
+        <p class="section-subtitle">Six specialized treatments designed to make you look and feel extraordinary.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1" onclick="switchPricing('threading')">
+          <div class="service-card-visual">
+            <img src="threading_details_png_1778351467371.png" alt="Threading" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Threading</h3>
+            <p class="service-card-desc">Ancient Asian technique for precise eyebrow shaping — kinder to skin, finer
+              re-growth.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$18</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-2" onclick="switchPricing('waxing')">
+          <div class="service-card-visual">
+            <img src="waxing_setup_png_1778351508858.png" alt="Waxing" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Waxing</h3>
+            <p class="service-card-desc">Discreet hot and strip waxing for all body areas with low-irritation formula.
+            </p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$18</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-3" onclick="switchPricing('henna')">
+          <div class="service-card-visual">
+            <img src="henna_hand_png_1778351737471.png" alt="Henna Art" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Henna Art</h3>
+            <p class="service-card-desc">Stunning henna tattoo designs for special occasions and everyday beauty.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$25</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-1" onclick="switchPricing('skin')">
+          <div class="service-card-visual">
+            <img src="facial_treatment_png_1778351936116.png" alt="Skin Treatments" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Skin Treatments</h3>
+            <p class="service-card-desc">Professional facial treatments for clearer, brighter, healthier skin.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$75</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-2" onclick="switchPricing('massage')">
+          <div class="service-card-visual">
+            <img src="head_massage_relax_png_1778352496372.png" alt="Massage" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Massage</h3>
+            <p class="service-card-desc">Therapeutic head and body massage for deep relaxation and stress relief.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$50</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-3" onclick="switchPricing('sugaring')">
+          <div class="service-card-visual">
+            <img src="sugaring_paste_png_1778352516504.png" alt="Sugaring" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name">Sugaring</h3>
+            <p class="service-card-desc">Natural sugar-based hair removal — gentle, effective, and eco-friendly.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from">Starting from</div>
+              </div>
+              <div class="service-card-amount">$11</div>
+              <div class="service-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="section-tag">Transparent Pricing</div>
+        <h2 class="section-title">Our <em>Price</em> List</h2>
+        <p class="section-subtitle">Quality treatments at honest prices. No hidden fees, ever.</p>
+      </div>
+      <div class="pricing-tabs reveal">
+        <button class="pricing-tab active" onclick="switchPricing('threading')">Threading</button>
+        <button class="pricing-tab" onclick="switchPricing('waxing')">Waxing</button>
+        <button class="pricing-tab" onclick="switchPricing('sugaring')">Sugaring</button>
+        <button class="pricing-tab" onclick="switchPricing('henna')">Henna</button>
+        <button class="pricing-tab" onclick="switchPricing('skin')">Skin Treatments</button>
+        <button class="pricing-tab" onclick="switchPricing('massage')">Massage</button>
+      </div>
+      <div class="pricing-table-wrap reveal">
+        <!-- Threading -->
+        <div class="pricing-panel active" id="panel-threading">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="threading_details_png_1778351467371.png" alt="Eyebrow Threading" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Threading is an ancient eyebrow shaping and hair removal technique originating
+                from Asia. Kinder to the skin than alternative methods, leading to finer, softer and smoother re-growth;
+                shaped to complement your facial features. Threading treatments take between 10-15 minutes. We recommend
+                visits every 3-4 weeks; We’d love to see you back!</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Eyebrow (Women's)</td>
+                    <td>$18</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Eyebrow (Men's)</td>
+                    <td>$18</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Eyebrows and lip</td>
+                    <td>$25+</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Forehead</td>
+                    <td>$8</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Side burns</td>
+                    <td>$15</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Upper Lip</td>
+                    <td>$10</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Lower Lip</td>
+                    <td>$5</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Chin</td>
+                    <td>$8</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Neck</td>
+                    <td>$10</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Full Face</td>
+                    <td>$45+</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>Full Face including Neck</td>
+                    <td>$50+</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>Under Arms</td>
+                    <td>$25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waxing -->
+        <div class="pricing-panel" id="panel-waxing">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="waxing_setup_png_1778351508858.png" alt="Waxing Services" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Our discreet hot and strip - waxing treatments are suitable for all areas of your
+                body. Our hot wax has a lower melting point, causing less irritation, and is usable for longer length –
+                meaning your treatment can be completed quicker.</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Eyebrow</td>
+                    <td>$18</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Nose Hair</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Side Burns</td>
+                    <td>$15</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Upper Lip</td>
+                    <td>$10</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Chin</td>
+                    <td>$8</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Buttocks(Cheek only)</td>
+                    <td>$30</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Chin with neck</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Full Face</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Lowe lip wax</td>
+                    <td>$5+</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Under Arms</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>Half arms wax</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>Full Arms</td>
+                    <td>$60+</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>Half back waxing</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>Neck</td>
+                    <td>$10+</td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>Chest</td>
+                    <td>$38</td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>Butt Strip</td>
+                    <td>$15</td>
+                  </tr>
+                  <tr>
+                    <td>17</td>
+                    <td>Stomach</td>
+                    <td>$35</td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>Full Back</td>
+                    <td>$70+</td>
+                  </tr>
+                  <tr>
+                    <td>19</td>
+                    <td>Half Legs</td>
+                    <td>$45+</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>Full Legs</td>
+                    <td>$65+</td>
+                  </tr>
+                  <tr>
+                    <td>21</td>
+                    <td>Bikini</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>22</td>
+                    <td>Women Brazilian</td>
+                    <td>$65+</td>
+                  </tr>
+                  <tr>
+                    <td>23</td>
+                    <td>Full Body</td>
+                    <td>$230 (Face & Brazilian not included)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sugaring -->
+        <div class="pricing-panel" id="panel-sugaring">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="sugaring_paste_png_1778352516504.png" alt="Sugaring Services" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Our gentle sugaring treatments are ideal for all areas of your body. Made from
+                natural ingredients, our sugar paste adheres only to dead skin cells and hair, reducing irritation and
+                discomfort. The result is smooth skin with less redness, making it perfect even for sensitive areas.</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Full arms sugaring</td>
+                    <td>$65+</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Half arms sugaring</td>
+                    <td>$35+</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Women Brazillian sugaring</td>
+                    <td>$80+</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>UnderArm sugaring</td>
+                    <td>$25+</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Women bikini sugaring</td>
+                    <td>$50</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Butt strip sugaring</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Eyebrows sugaring</td>
+                    <td>$21+</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Upper lip sugaring</td>
+                    <td>$13+</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Chin sugaring</td>
+                    <td>$11+</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Sideburns/cheeks sugaring</td>
+                    <td>$18+</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>Full face sugaring</td>
+                    <td>$150</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>Neck sugaring</td>
+                    <td>$13+</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>Full legs sugaring</td>
+                    <td>$90+</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>Half legs sugaring</td>
+                    <td>$50+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Henna -->
+        <div class="pricing-panel" id="panel-henna">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="henna_hand_png_1778351737471.png" alt="Henna Services" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Henna is a form of body art from Ancient India that is applied on hands, feet, or
+                other body parts. For those who don't know anything about henna tattooing, it's an ancient practice used
+                to create designs with significant and often spiritual meaning. It's generally used today to express
+                good luck, happiness, and is often featured at ceremonial events like weddings, graduations,
+                maternities, and birthdays. Henna tends to last approximately two weeks.</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Hair Henna (Organic plant based-Zero Chemicals)</td>
+                    <td>$85+</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Hair Conditioning Henna</td>
+                    <td>$75</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Henna Tattoos</td>
+                    <td>$25+</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Henna Brows</td>
+                    <td>$35</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Maternity Henna</td>
+                    <td>$65+</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Bridal Henna</td>
+                    <td>(Price based on selection of Designs)</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Henna Parties</td>
+                    <td>(Price based on selection of Designs)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skin Treatments -->
+        <div class="pricing-panel" id="panel-skin">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="facial_treatment_png_1778351936116.png" alt="Skin Treatments" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Whether your skin needs re-balancing, re-nourishing or decongesting, these
+                treatments will encourage healthy skin metabolism and self-repair, leaving your complexion clean,
+                charged, and radiant.</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Mini Facial</td>
+                    <td>$75+</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Herbal Bleach (Face only)</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>60 min Facial</td>
+                    <td>$120+</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>90 min facial</td>
+                    <td>$150+</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Eyebrow tint</td>
+                    <td>$30+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Massage -->
+        <div class="pricing-panel" id="panel-massage">
+          <div class="pricing-grid">
+            <div class="pricing-image-wrap">
+              <img src="head_massage_relax_png_1778352496372.png" alt="Head Massage" class="pricing-image">
+            </div>
+            <div class="pricing-content">
+              <p class="pricing-desc">Our Ayurveda hot oil head massages help to release tension, promote relaxation,
+                and improve blood circulation within the nervous system. Head massages help to ease migraines, relieve
+                head pain, reduce stress, and boost hair growth. Hot oils aid to lubricate, soften, and condition the
+                hair.</p>
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Head Massage (Please contact us before booking this appointment)</td>
+                    <td>$50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-image-main">
+            <div class="about-circle"></div>
+            <div class="about-circle-2"></div>
+            <div style="text-align:center;z-index:2;position:relative">
+              <span class="about-logo-large">Estheva</span>
+              <span class="about-logo-sub">Aesthetics</span>
+            </div>
+          </div>
+          <div class="about-float">
+            <div class="about-float-number">5★</div>
+            <div class="about-float-text">Rated on Google</div>
+          </div>
+        </div>
+        <div class="about-content reveal reveal-delay-2">
+          <div class="section-tag">About Us</div>
+          <h2 class="section-title">Where Life is <em>Beautiful</em></h2>
+          <p class="section-subtitle"><strong>ESTHEVA</strong> — meaning a place where life is always a beautiful and
+            rejuvenating experience. We bring ancient beauty traditions together with modern techniques to deliver
+            results you'll love.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">✦</div>
+              <div>
+                <h4>Ancient Techniques</h4>
+                <p>Threading and traditional methods passed down through generations, refined for modern precision.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">♡</div>
+              <div>
+                <h4>Gentle & Kind</h4>
+                <p>We use low-irritation formulas and gentle techniques that are kinder to your skin.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">★</div>
+              <div>
+                <h4>Expert Care</h4>
+                <p>Our experienced team shapes and treats to complement your unique facial features.</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
+            target="_blank" class="btn-primary">Visit Us <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="trust section">
+    <div class="trust-bg"></div>
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
+        <div class="section-tag" style="justify-content:center"><span style="display:none"></span>What Clients Say</div>
+        <h2 class="section-title">Loved by <em>Thousands</em></h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card reveal reveal-delay-1">
+          <div class="trust-stars">★★★★★</div>
+          <p class="trust-text">"The best threading I've ever had. So precise and gentle — my eyebrows have never looked
+            better!"</p>
+          <div class="trust-author">
+            <div class="trust-avatar">SL</div>
+            <div>
+              <div class="trust-name">Sarah L.</div>
+              <div class="trust-role">Regular Client</div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-card reveal reveal-delay-2">
+          <div class="trust-stars">★★★★★</div>
+          <p class="trust-text">"Love the henna work — beautiful intricate designs that lasted for weeks. Everyone was
+            asking where I got it done."</p>
+          <div class="trust-author">
+            <div class="trust-avatar">MP</div>
+            <div>
+              <div class="trust-name">Maria P.</div>
+              <div class="trust-role">Henna Client</div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-card reveal reveal-delay-3">
+          <div class="trust-stars">★★★★★</div>
+          <p class="trust-text">"Clean, professional, and so welcoming. The waxing was quick and virtually painless.
+            Highly recommend!"</p>
+          <div class="trust-author">
+            <div class="trust-avatar">JR</div>
+            <div>
+              <div class="trust-name">James R.</div>
+              <div class="trust-role">Monthly Visitor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section" id="contact">
+    <div class="contact-glow"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="section-tag">Get In Touch</div>
+          <h2 class="section-title">Visit <em>Estheva</em></h2>
+          <p class="section-subtitle">We'd love to welcome you. Walk-ins are accepted, but booking ahead guarantees your
+            spot.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <h4>Address</h4>
+                <p>1906 Fremont Blvd<br>Seaside, CA 93955</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <h4>Phone</h4>
+                <p><a href="tel:+18313838789">(831) 383-8789</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌐</div>
+              <div>
+                <h4>Website</h4>
+                <p><a href="https://www.esthevaaesthetics.com" target="_blank">esthevaaesthetics.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-hours">
+            <h4>Business Hours</h4>
+            <div class="hours-grid">
+              <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time closed">Closed</span>
+              </div>
+              <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:30 AM – 6:00
+                  PM</span></div>
+              <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:30 AM – 6:00
+                  PM</span></div>
+              <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:30 AM – 6:00
+                  PM</span></div>
+              <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:30 AM – 6:00
+                  PM</span></div>
+              <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:30 AM – 6:00
+                  PM</span></div>
+              <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <p>Have a question? We'll get back to you shortly.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Jane">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="jane@example.com">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="(831) 000-0000">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us about the service you're interested in…"></textarea>
+            </div>
+            <button class="btn-primary btn-submit">Send Message <svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">Estheva Aesthetics</span>
+      <span class="footer-copy">© 2026 esthevaaesthetics.com — All rights reserved</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">in</a>
+        <a href="#" aria-label="Yelp">y</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* ── Pricing expanded ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 450px 1fr;
+      gap: 4rem;
+      align-items: start
+    }
+
+    .pricing-image-wrap {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+      position: sticky;
+      top: 100px
+    }
+
+    .pricing-image {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s cubic-bezier(.23, 1, .32, 1)
+    }
+
+    .pricing-panel:hover .pricing-image {
+      transform: scale(1.05)
+    }
+
+    @media (max-width: 992px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem
+      }
+
+      .pricing-image-wrap {
+        position: static;
+        max-width: 600px;
+        margin: 0 auto
+      }
+
+      .pricing-image {
+        height: 400px
+      }
+    }
+
+    .pricing-tabs {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch
+    }
+
+    .pricing-tabs::-webkit-scrollbar {
+      display: none
+    }
+  </style>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hero Slider
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    if (slides.length > 0) {
+      setInterval(nextSlide, 5000);
+    }
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+    overlay.addEventListener('click', () => {
+      links.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    });
+
+    // Pricing tabs
+    function switchPricing(tab) {
+      document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + tab).classList.add('active');
+      document.querySelectorAll('.pricing-tab').forEach(t => {
+        if (t.textContent.toLowerCase().replace(' ', '') === tab.replace(' ', '')) t.classList.add('active');
+      });
+      document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
