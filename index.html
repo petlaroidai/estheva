@@ -2,9 +2,108 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estheva Aesthetics — Beautify & Rejuvenate</title>
+  <title>Estheva Aesthetics — Premium Eyebrow Threading & Skin Care in Seaside, CA</title>
+  <meta name="description"
+    content="Estheva Aesthetics in Seaside, California offers expert eyebrow threading, relaxing facials, body waxing, and traditional henna art. Experience premium aesthetic care today.">
+  <meta name="keywords"
+    content="eyebrow threading seaside ca, aesthetics seaside, skin care seaside, waxing seaside, henna art seaside, estheva aesthetics">
+  <link rel="canonical" href="https://esthevaaesthetics.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://esthevaaesthetics.com/">
+  <meta property="og:title" content="Estheva Aesthetics — Premium Eyebrow Threading & Skin Care">
+  <meta property="og:description"
+    content="Expert eyebrow threading, facials, and beauty treatments in Seaside, CA. Book your rejuvenation experience today.">
+  <meta property="og:image" content="https://esthevaaesthetics.com/estevalogo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://esthevaaesthetics.com/">
+  <meta property="twitter:title" content="Estheva Aesthetics — Premium Eyebrow Threading & Skin Care">
+  <meta property="twitter:description"
+    content="Expert eyebrow threading, facials, and beauty treatments in Seaside, CA. Book your rejuvenation experience today.">
+  <meta property="twitter:image" content="https://esthevaaesthetics.com/estevalogo.png">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Estheva Aesthetics",
+    "image": "https://esthevaaesthetics.com/estevalogo.png",
+    "@id": "https://esthevaaesthetics.com/",
+    "url": "https://esthevaaesthetics.com/",
+    "telephone": "(831) 383-8789",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Seaside",
+      "addressLocality": "Seaside",
+      "addressRegion": "CA",
+      "postalCode": "93955",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.6139,
+      "longitude": -121.8219
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:30",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/esthevaaesthetics",
+      "https://www.instagram.com/esthevaaesthetics"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Estheva Aesthetics offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estheva Aesthetics offers a wide range of premium services including Eyebrow Threading, Body Waxing, Skin Treatments (Facials), Henna Art, Therapeutic Massage, and Sugaring."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Estheva Aesthetics located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are located in Seaside, California, serving the local community and surrounding areas with expert aesthetic care."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I book an appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can easily book an appointment online through our Booksy link found on our website, or by visiting our Booksy profile directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is eyebrow threading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eyebrow threading is an ancient Asian technique for precise eyebrow shaping and hair removal. It is kinder to the skin than alternative methods and leads to finer, softer re-growth."
+        }
+      }
+    ]
+  }
+  </script>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet">
@@ -67,7 +166,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 1.25rem 0;
+      padding: 1rem 0;
       transition: all .5s cubic-bezier(.23, 1, .32, 1)
     }
 
@@ -80,9 +179,10 @@
     }
 
     .nav-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between
+      gap: 2rem
     }
 
     .logo {
@@ -93,7 +193,7 @@
     }
 
     .logo-img {
-      height: 48px;
+      height: 100px;
       width: auto;
       display: block;
       transition: transform .3s ease
@@ -177,6 +277,48 @@
       height: 2px;
       background: var(--charcoal);
       transition: all .3s
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: flex-end
+    }
+
+    /* ── Language Toggle ── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--charcoal);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--gray-light);
+      transition: color 0.3s;
+      font-family: inherit;
+      text-transform: uppercase;
+    }
+
+    .lang-btn.active {
+      color: var(--red);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--charcoal);
+    }
+
+    .lang-divider {
+      color: var(--gray-light);
+      font-weight: 300;
     }
 
     /* ── Hero ── */
@@ -1219,16 +1361,69 @@
     .footer {
       background: var(--cream);
       border-top: 1px solid rgba(0, 0, 0, .05);
-      padding: 4rem 0;
+      padding: 5rem 0 2rem;
       color: var(--gray)
     }
 
-    .footer-logo {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem
+    }
+
+    .footer-col-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem
+    }
+
+    .footer-logo-img {
+      height: 80px;
+      width: auto;
+      display: block
+    }
+
+    .footer-tagline {
+      font-size: .95rem;
+      line-height: 1.6;
+      max-width: 320px
+    }
+
+    .footer-heading {
       font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--red);
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
       font-weight: 500
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem
+    }
+
+    .footer-link-list a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: .9rem;
+      transition: color .3s
+    }
+
+    .footer-link-list a:hover {
+      color: var(--red)
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, .05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem
     }
 
     .footer-inner {
@@ -1239,20 +1434,13 @@
       gap: 1rem
     }
 
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--red-light)
-    }
-
     .footer-copy {
       font-size: .8rem
     }
 
     .footer-social {
       display: flex;
-      gap: 1rem
+      gap: .75rem
     }
 
     .footer-social a {
@@ -1326,9 +1514,13 @@
         gap: 3rem
       }
 
-      .hero-stats {
-        gap: 2.5rem;
-        flex-wrap: wrap
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem
+      }
+
+      .footer-col-brand {
+        grid-column: span 2
       }
     }
 
@@ -1379,9 +1571,18 @@
         gap: .35rem
       }
 
-      .pricing-tab {
-        padding: .5rem 1.2rem;
-        font-size: .7rem
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem
+      }
+
+      .footer-col-brand {
+        grid-column: span 1
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center
       }
     }
 
@@ -1400,30 +1601,380 @@
       opacity: 1;
       pointer-events: auto
     }
+
+    /* ── FAQ ── */
+    .faq {
+      background: var(--white);
+      padding: 8rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .faq .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .faq .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center
+    }
+
+    .faq-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .faq-item {
+      border: 1px solid rgba(0, 0, 0, .05);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all .3s
+    }
+
+    .faq-item:hover {
+      border-color: var(--red-light);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .03)
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--charcoal);
+      font-weight: 500;
+      gap: 1rem
+    }
+
+    .faq-answer {
+      padding: 0 2rem 1.5rem;
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: .95rem;
+      display: none
+    }
+
+    .faq-item.active .faq-answer {
+      display: block
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--red-light);
+      transition: transform .3s
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg)
+    }
+
+    /* ── Reviews Slider ── */
+    .reviews-slider-section {
+      background: var(--cream);
+      padding: 8rem 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 0, 0, .05);
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .reviews-stats {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--white);
+      padding: .75rem 1.5rem;
+      border-radius: 100px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 500;
+      font-size: .9rem;
+      transition: all .3s
+    }
+
+    .reviews-stats:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+      color: var(--red);
+    }
+
+    .reviews-stats span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-50% - 1rem));
+      }
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 24px;
+      width: 400px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, .03);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, .02);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .review-stars {
+      color: #FFB800;
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+    }
+
+    .review-text {
+      font-size: .95rem;
+      line-height: 1.7;
+      color: var(--gray);
+      font-style: italic;
+      flex-grow: 1;
+    }
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+
+    .review-author {
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: .95rem;
+    }
+
+    .review-date {
+      font-size: .8rem;
+      color: var(--gray-light);
+    }
   </style>
+  <script>
+    // Translation System and Content
+    const translations = {
+      en: {
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_pricing: "Pricing",
+        nav_about: "About",
+        nav_contact: "Contact",
+        cta_book_now: "Book Now",
+        hero_eyebrow: "Seaside, California",
+        hero_title: "Beautify &<br><em>Rejuvenate</em><br>Yourself",
+        hero_desc: "Specializing in Eyebrow Threading, Body Waxing, Skin Treatments, Henna Art, and Therapeutic Massage.",
+        hero_btn_book: "Book Appointment",
+        hero_btn_services: "View Pricing",
+        stat_years_label: "Years Experience",
+        stat_clients_label: "Happy Clients",
+        stat_rating_label: "Star Rating",
+        services_tag: "Our Services",
+        services_title: "Crafted for Your <em>Radiance</em>",
+        services_subtitle: "Explore our range of premium aesthetic treatments designed to enhance your natural features and promote deep relaxation.",
+        service_threading_name: "Eyebrow Threading",
+        service_threading_desc: "Precise shaping using ancient techniques for the perfect arch.",
+        service_waxing_name: "Body Waxing",
+        service_waxing_desc: "Smooth, long-lasting results with our gentle waxing methods.",
+        service_facials_name: "Skin Treatments",
+        service_facials_desc: "Rejuvenating facials tailored to your unique skin needs.",
+        service_henna_name: "Henna Art",
+        service_henna_desc: "Beautiful, traditional henna designs for any occasion.",
+        service_massage_name: "Therapeutic Massage",
+        service_massage_desc: "Relieve stress and tension with our expertly applied massage techniques.",
+        service_sugaring_name: "Sugaring",
+        service_sugaring_desc: "An all-natural alternative to waxing for sensitive skin.",
+        service_card_from: "FROM",
+        about_tag: "About Us",
+        about_title: "Your Sanctuary for <em>Aesthetic</em> Excellence",
+        about_p1: "Estheva Aesthetics is more than just a beauty studio. Founded on the principle that self-care is essential, we provide a tranquil space where premium treatments meet personalized attention.",
+        about_p2: "Whether you’re seeking the precision of eyebrow threading or the revitalization of a custom facial, our expert technicians are dedicated to helping you look and feel your absolute best.",
+        about_feature_precision: "Precision Threading",
+        about_feature_precision_desc: "Meticulous attention to detail for the perfect shape.",
+        about_feature_natural: "Natural Products",
+        about_feature_natural_desc: "We use only high-quality, skin-friendly ingredients.",
+        about_feature_expert: "Expert Technicians",
+        about_feature_expert_desc: "Licensed professionals with years of specialized experience.",
+        pricing_service: "Service",
+        pricing_price: "Price",
+        reviews_stats_rating: "<span>5★</span> rating on over 250+ reviews",
+        reviews_title: "What Our <em>Clients</em> Say",
+        faq_tag: "FAQ",
+        faq_title: "Common <em>Questions</em>",
+        faq_subtitle: "Find answers to frequently asked questions about our services and booking.",
+        faq_q1: "What services does Estheva Aesthetics offer?",
+        faq_a1: "Estheva Aesthetics offers a wide range of premium services including Eyebrow Threading, Body Waxing, Skin Treatments (Facials), Henna Art, Therapeutic Massage, and Sugaring.",
+        faq_q2: "Where is Estheva Aesthetics located?",
+        faq_a2: "We are located in Seaside, California, serving the local community and surrounding areas with expert aesthetic care.",
+        faq_q3: "How can I book an appointment?",
+        faq_a3: "You can easily book an appointment online through our Booksy link found in the header and throughout the website, or by calling us directly.",
+        faq_q4: "What is eyebrow threading?",
+        faq_a4: "Eyebrow threading is an ancient Asian technique for precise eyebrow shaping and hair removal. It is kinder to the skin than alternative methods and leads to finer, softer re-growth; shaped to complement your facial features.",
+        contact_tag: "Get In Touch",
+        contact_title: "Visit <em>Estheva</em>",
+        contact_desc: "We'd love to welcome you. Walk-ins are accepted, but booking ahead guarantees your spot.",
+        footer_tagline: "Premium skincare and aesthetic treatments in Seaside, California. Empowering your natural beauty through expertise and care.",
+        footer_explore: "Explore",
+        footer_legal: "Legal",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms & Conditions",
+        footer_copyright: "© 2026 esthevaaesthetics.com — All rights reserved"
+      },
+      es: {
+        nav_home: "Inicio",
+        nav_services: "Servicios",
+        nav_pricing: "Precios",
+        nav_about: "Nosotros",
+        nav_contact: "Contacto",
+        cta_book_now: "Reservar Ahora",
+        hero_eyebrow: "Estheva Aesthetics",
+        hero_title: "Rejuvenece Tu Belleza <em>Natural</em>",
+        hero_desc: "Depilación de cejas con hilo experta, faciales relajantes y tratamientos de belleza premium en Seaside, CA. Tu viaje hacia el resplandor comienza aquí.",
+        hero_btn_book: "Reservar Cita",
+        hero_btn_services: "Nuestros Servicios",
+        stat_years_label: "Años de Experiencia",
+        stat_clients_label: "Clientes Felices",
+        stat_rating_label: "Calificación",
+        services_tag: "Nuestros Servicios",
+        services_title: "Creado para tu <em>Resplandor</em>",
+        services_subtitle: "Explora nuestra gama de tratamientos estéticos premium diseñados para realzar tus rasgos naturales y promover una relajación profunda.",
+        service_threading_name: "Depilación con Hilo",
+        service_threading_desc: "Modelado preciso usando técnicas ancestrales para el arco perfecto.",
+        service_waxing_name: "Depilación con Cera",
+        service_waxing_desc: "Resultados suaves y duraderos con nuestros métodos de depilación suaves.",
+        service_facials_name: "Tratamientos de Piel",
+        service_facials_desc: "Faciales rejuvenecedores adaptados a las necesidades únicas de tu piel.",
+        service_henna_name: "Arte con Henna",
+        service_henna_desc: "Hermosos diseños de henna tradicional para cualquier ocasión.",
+        service_massage_name: "Masaje Terapéutico",
+        service_massage_desc: "Alivia el estrés y la tensión con nuestras técnicas de masaje expertas.",
+        service_sugaring_name: "Depilación con Azúcar",
+        service_sugaring_desc: "Una alternativa totalmente natural a la cera para pieles sensibles.",
+        service_card_from: "DESDE",
+        about_tag: "Sobre Nosotros",
+        about_title: "Tu Santuario para la Excelencia <em>Estética</em>",
+        about_p1: "Estheva Aesthetics es más que un simple estudio de belleza. Fundado en el principio de que el autocuidado es esencial, brindamos un espacio tranquilo donde los tratamientos premium se encuentran con la atención personalizada.",
+        about_p2: "Ya sea que busques la precisión de la depilación de cejas con hilo o la revitalización de un facial personalizado, nuestros técnicos expertos están dedicados a ayudarte a lucir y sentirte lo mejor posible.",
+        about_feature_precision: "Depilación de Precisión",
+        about_feature_precision_desc: "Atención meticulosa al detalle para la forma perfecta.",
+        about_feature_natural: "Productos Naturales",
+        about_feature_natural_desc: "Utilizamos solo ingredientes de alta calidad y respetuosos con la piel.",
+        about_feature_expert: "Técnicos Expertos",
+        about_feature_expert_desc: "Profesionales licenciados con años de experiencia especializada.",
+        pricing_service: "Servicio",
+        pricing_price: "Precio",
+        reviews_stats_rating: "<span>5★</span> calificación en más de 250+ reseñas",
+        reviews_title: "Lo que dicen nuestros <em>Clientes</em>",
+        faq_tag: "FAQ",
+        faq_title: "Preguntas <em>Comunes</em>",
+        faq_subtitle: "Encuentra respuestas a las preguntas frecuentes sobre nuestros servicios y reservas.",
+        faq_q1: "¿Qué servicios ofrece Estheva Aesthetics?",
+        faq_a1: "Estheva Aesthetics ofrece una amplia gama de servicios premium que incluyen depilación con hilo, depilación con cera, tratamientos de piel (faciales), arte con henna, masaje terapéutico y depilación con azúcar.",
+        faq_q2: "¿Dónde se encuentra Estheva Aesthetics?",
+        faq_a2: "Estamos ubicados en Seaside, California, sirviendo a la comunidad local y áreas circundantes con cuidado estético experto.",
+        faq_q3: "¿Cómo puedo reservar una cita?",
+        faq_a3: "Puedes reservar fácilmente una cita en línea a través de nuestro enlace Booksy que se encuentra en el encabezado y en todo el sitio web, o llamándonos directamente.",
+        faq_q4: "¿Qué es la depilación con hilo?",
+        faq_a4: "La depilación con hilo es una técnica milenaria asiática para el modelado preciso de las cejas y la eliminación del vello. Es más amable con la piel que otros métodos alternativos y conduce a un crecimiento del vello más fino y suave.",
+        contact_tag: "Ponte en Contacto",
+        contact_title: "Visita <em>Estheva</em>",
+        contact_desc: "Nos encantaría recibirte. Se aceptan visitas sin cita previa, pero reservar con antelación garantiza tu lugar.",
+        footer_tagline: "Cuidado de la piel y tratamientos estéticos premium en Seaside, California. Empoderando tu belleza natural a través de la experiencia y el cuidado.",
+        footer_explore: "Explorar",
+        footer_legal: "Legal",
+        footer_privacy: "Política de Privacidad",
+        footer_terms: "Términos y Condiciones",
+        footer_copyright: "© 2026 esthevaaesthetics.com — Todos los derechos reservados"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('lang-' + lang);
+      if (activeBtn) activeBtn.classList.add('active');
+      document.documentElement.lang = lang;
+      localStorage.setItem('preferredLanguage', lang);
+    }
+  </script>
 </head>
 
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
-    <div class="container nav-inner">
+    <div class="nav-inner container">
+      <!-- Logo -->
       <a href="#" class="logo">
-        <img src="estevalogo.png" alt="Estheva Aesthetics Logo" class="logo-img">
+        <img src="estevalogo.png" alt="Estheva Aesthetics" class="logo-img">
       </a>
+
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a
-            href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
-            target="_blank" class="nav-cta">Book Now</a></li>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="setLanguage('en')" id="lang-en">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" onclick="setLanguage('es')" id="lang-es">ES</button>
+        </div>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside" class="nav-cta"
+          data-i18n="cta_book_now">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
   <div class="nav-overlay" id="navOverlay"></div>
@@ -1431,27 +1982,29 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-bg"></div>
-    <div class="hero-slider">
-      <div class="hero-slide active" style="background-image: url('face_mask.png')"></div>
-      <div class="hero-slide" style="background-image: url('head_massage.png')"></div>
-      <div class="hero-slide" style="background-image: url('henna_design.png')"></div>
-    </div>
     <div class="hero-pattern"></div>
     <div class="hero-glow"></div>
     <div class="hero-glow-2"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">Seaside, California</div>
-        <h1 class="hero-title">Beautify &<br><em>Rejuvenate</em><br>Yourself</h1>
-        <p class="hero-desc">Specializing in Eyebrow Threading, Body Waxing, Skin Treatments, Henna Art, and Therapeutic
-          Massage.</p>
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">Seaside, California</div>
+        <h1 class="hero-title" data-i18n="hero_title">
+          Beautify &<br><em>Rejuvenate</em><br>Yourself
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          Specializing in Eyebrow Threading, Body Waxing, Skin Treatments, Henna Art, and Therapeutic Massage.
+        </p>
         <div class="hero-actions">
-          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
-            target="_blank" class="btn-primary">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg></a>
-          <a href="#pricing" class="btn-outline">View Pricing</a>
+          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+            class="btn-primary" data-i18n="hero_btn_book">
+            Book Appointment
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#services" class="btn-outline" data-i18n="hero_btn_services">Our Services</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -1475,110 +2028,159 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services Section -->
   <section class="services section" id="services">
     <div class="container">
       <div class="services-header reveal">
-        <div class="section-tag">Our Services</div>
-        <h2 class="section-title">The <em>Best</em> For You</h2>
-        <p class="section-subtitle">Six specialized treatments designed to make you look and feel extraordinary.</p>
+        <div class="section-tag" data-i18n="services_tag">Our Services</div>
+        <h2 class="section-title" data-i18n="services_title">Crafted for Your <em>Radiance</em></h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">
+          Explore our range of premium aesthetic treatments designed to enhance your natural features and promote deep
+          relaxation.
+        </p>
       </div>
+
       <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1" onclick="switchPricing('threading')">
+        <!-- Threading -->
+        <div class="service-card reveal reveal-delay-1">
           <div class="service-card-visual">
-            <img src="threading_details_png_1778351467371.png" alt="Threading" class="service-card-img">
+            <img src="threading_details_png_1778351467371.png" alt="Eyebrow Threading" class="service-card-img">
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-name">Threading</h3>
-            <p class="service-card-desc">Ancient Asian technique for precise eyebrow shaping — kinder to skin, finer
-              re-growth.</p>
+            <h3 class="service-card-name" data-i18n="service_threading_name">Eyebrow Threading</h3>
+            <p class="service-card-desc" data-i18n="service_threading_desc">Precise shaping using ancient techniques for
+              the perfect arch.</p>
             <div class="service-card-price">
               <div>
-                <div class="service-card-from">Starting from</div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$15</div>
               </div>
-              <div class="service-card-amount">$18</div>
-              <div class="service-card-arrow">→</div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-2" onclick="switchPricing('waxing')">
+
+        <!-- Waxing -->
+        <div class="service-card reveal reveal-delay-2">
           <div class="service-card-visual">
-            <img src="waxing_setup_png_1778351508858.png" alt="Waxing" class="service-card-img">
+            <img src="waxing_setup_png_1778351508858.png" alt="Body Waxing" class="service-card-img">
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-name">Waxing</h3>
-            <p class="service-card-desc">Discreet hot and strip waxing for all body areas with low-irritation formula.
-            </p>
+            <h3 class="service-card-name" data-i18n="service_waxing_name">Body Waxing</h3>
+            <p class="service-card-desc" data-i18n="service_waxing_desc">Smooth, long-lasting results with our gentle
+              waxing methods.</p>
             <div class="service-card-price">
               <div>
-                <div class="service-card-from">Starting from</div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$45</div>
               </div>
-              <div class="service-card-amount">$18</div>
-              <div class="service-card-arrow">→</div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-3" onclick="switchPricing('henna')">
+
+        <!-- Facials -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-card-visual">
+            <img src="facial_treatment_png_1778351936116.png" alt="Skin Care" class="service-card-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-name" data-i18n="service_facials_name">Skin Treatments</h3>
+            <p class="service-card-desc" data-i18n="service_facials_desc">Rejuvenating facials tailored to your unique
+              skin needs.</p>
+            <div class="service-card-price">
+              <div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$40</div>
+              </div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Henna -->
+        <div class="service-card reveal reveal-delay-1">
           <div class="service-card-visual">
             <img src="henna_hand_png_1778351737471.png" alt="Henna Art" class="service-card-img">
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-name">Henna Art</h3>
-            <p class="service-card-desc">Stunning henna tattoo designs for special occasions and everyday beauty.</p>
+            <h3 class="service-card-name" data-i18n="service_henna_name">Henna Art</h3>
+            <p class="service-card-desc" data-i18n="service_henna_desc">Beautiful, traditional henna designs for any
+              occasion.</p>
             <div class="service-card-price">
               <div>
-                <div class="service-card-from">Starting from</div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$25</div>
               </div>
-              <div class="service-card-amount">$25</div>
-              <div class="service-card-arrow">→</div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-1" onclick="switchPricing('skin')">
+
+        <!-- Massage -->
+        <div class="service-card reveal reveal-delay-2">
           <div class="service-card-visual">
-            <img src="facial_treatment_png_1778351936116.png" alt="Skin Treatments" class="service-card-img">
+            <img src="head_massage_relax_png_1778352496372.png" alt="Therapeutic Massage" class="service-card-img">
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-name">Skin Treatments</h3>
-            <p class="service-card-desc">Professional facial treatments for clearer, brighter, healthier skin.</p>
+            <h3 class="service-card-name" data-i18n="service_massage_name">Therapeutic Massage</h3>
+            <p class="service-card-desc" data-i18n="service_massage_desc">Relieve stress and tension with our expertly
+              applied massage techniques.</p>
             <div class="service-card-price">
               <div>
-                <div class="service-card-from">Starting from</div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$45</div>
               </div>
-              <div class="service-card-amount">$75</div>
-              <div class="service-card-arrow">→</div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-2" onclick="switchPricing('massage')">
-          <div class="service-card-visual">
-            <img src="head_massage_relax_png_1778352496372.png" alt="Massage" class="service-card-img">
-          </div>
-          <div class="service-card-body">
-            <h3 class="service-card-name">Massage</h3>
-            <p class="service-card-desc">Therapeutic head and body massage for deep relaxation and stress relief.</p>
-            <div class="service-card-price">
-              <div>
-                <div class="service-card-from">Starting from</div>
-              </div>
-              <div class="service-card-amount">$50</div>
-              <div class="service-card-arrow">→</div>
-            </div>
-          </div>
-        </div>
-        <div class="service-card reveal reveal-delay-3" onclick="switchPricing('sugaring')">
+
+        <!-- Sugaring -->
+        <div class="service-card reveal reveal-delay-3">
           <div class="service-card-visual">
             <img src="sugaring_paste_png_1778352516504.png" alt="Sugaring" class="service-card-img">
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-name">Sugaring</h3>
-            <p class="service-card-desc">Natural sugar-based hair removal — gentle, effective, and eco-friendly.</p>
+            <h3 class="service-card-name" data-i18n="service_sugaring_name">Sugaring</h3>
+            <p class="service-card-desc" data-i18n="service_sugaring_desc">An all-natural alternative to waxing for
+              sensitive skin.</p>
             <div class="service-card-price">
               <div>
-                <div class="service-card-from">Starting from</div>
+                <div class="service-card-from" data-i18n="service_card_from">FROM</div>
+                <div class="service-card-amount">$15</div>
               </div>
-              <div class="service-card-amount">$11</div>
-              <div class="service-card-arrow">→</div>
+              <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+                class="service-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -1618,8 +2220,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1636,7 +2238,7 @@
                   <tr>
                     <td>3</td>
                     <td>Eyebrows and lip</td>
-                    <td>$25+</td>
+                    <td>$28</td>
                   </tr>
                   <tr>
                     <td>4</td>
@@ -1703,8 +2305,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1816,7 +2418,7 @@
                   <tr>
                     <td>22</td>
                     <td>Women Brazilian</td>
-                    <td>$65+</td>
+                    <td>$70</td>
                   </tr>
                   <tr>
                     <td>23</td>
@@ -1843,8 +2445,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1940,8 +2542,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2000,8 +2602,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2051,8 +2653,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Service</th>
-                    <th>Price</th>
+                    <th data-i18n="pricing_service">Service</th>
+                    <th data-i18n="pricing_price">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2070,111 +2672,363 @@
     </div>
   </section>
 
-  <!-- About -->
+
+  <!-- About Section -->
   <section class="about section" id="about">
     <div class="container">
       <div class="about-grid">
         <div class="about-visual reveal">
           <div class="about-image-main">
+            <img src="face_mask.png" alt="Estheva Aesthetics"
+              style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
+            <div class="about-logo-overlay">
+              <span class="about-logo-large">Estheva</span>
+              <span class="about-logo-sub">AESTHETICS</span>
+            </div>
             <div class="about-circle"></div>
             <div class="about-circle-2"></div>
-            <div style="text-align:center;z-index:2;position:relative">
-              <span class="about-logo-large">Estheva</span>
-              <span class="about-logo-sub">Aesthetics</span>
-            </div>
           </div>
-          <div class="about-float">
-            <div class="about-float-number">5★</div>
-            <div class="about-float-text">Rated on Google</div>
+          <div class="about-float reveal reveal-delay-2">
+            <div class="about-float-number">10+</div>
+            <div class="about-float-text" data-i18n="stat_years_label">Years Experience</div>
           </div>
         </div>
-        <div class="about-content reveal reveal-delay-2">
-          <div class="section-tag">About Us</div>
-          <h2 class="section-title">Where Life is <em>Beautiful</em></h2>
-          <p class="section-subtitle"><strong>ESTHEVA</strong> — meaning a place where life is always a beautiful and
-            rejuvenating experience. We bring ancient beauty traditions together with modern techniques to deliver
-            results you'll love.</p>
+        <div class="about-content reveal reveal-delay-1">
+          <div class="section-tag" data-i18n="about_tag">About Us</div>
+          <h2 class="section-title" data-i18n="about_title">Your Sanctuary for <em>Aesthetic</em> Excellence</h2>
+          <p class="section-subtitle" data-i18n="about_p1">
+            Estheva Aesthetics is more than just a beauty studio. Founded on the principle that self-care is essential,
+            we provide a tranquil space where premium treatments meet personalized attention.
+          </p>
+          <div class="about-text">
+            <p data-i18n="about_p2">
+              Whether you’re seeking the precision of eyebrow threading or the revitalization of a custom facial, our
+              expert technicians are dedicated to helping you look and feel your absolute best.
+            </p>
+          </div>
           <div class="about-features">
             <div class="about-feature">
-              <div class="about-feature-icon">✦</div>
+              <div class="about-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
               <div>
-                <h4>Ancient Techniques</h4>
-                <p>Threading and traditional methods passed down through generations, refined for modern precision.</p>
+                <h4 data-i18n="about_feature_precision">Precision Threading</h4>
+                <p data-i18n="about_feature_precision_desc">Meticulous attention to detail for the perfect shape.</p>
               </div>
             </div>
             <div class="about-feature">
-              <div class="about-feature-icon">♡</div>
+              <div class="about-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
               <div>
-                <h4>Gentle & Kind</h4>
-                <p>We use low-irritation formulas and gentle techniques that are kinder to your skin.</p>
+                <h4 data-i18n="about_feature_natural">Natural Products</h4>
+                <p data-i18n="about_feature_natural_desc">We use only high-quality, skin-friendly ingredients.</p>
               </div>
             </div>
             <div class="about-feature">
-              <div class="about-feature-icon">★</div>
+              <div class="about-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
               <div>
-                <h4>Expert Care</h4>
-                <p>Our experienced team shapes and treats to complement your unique facial features.</p>
+                <h4 data-i18n="about_feature_expert">Expert Technicians</h4>
+                <p data-i18n="about_feature_expert_desc">Licensed professionals with years of specialized experience.
+                </p>
               </div>
             </div>
           </div>
-          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside?hl=en-US&gei=R45SaL-dI_ClptQPu_q0mAc&rwg_token=ACgRB3fZscBb3-NhDACRJW3df2UNNDcQkoSHMPpVaI8DlAtxBMf3JpTB2L5vDdQId6eMkQOkif-ZKn0h8lJaXTEVdp8382Ux7Q%3D%3D#ba_s=seo"
-            target="_blank" class="btn-primary">Visit Us <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg></a>
+          <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside"
+            class="btn-primary" data-i18n="hero_btn_book">Book Appointment</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="trust section">
-    <div class="trust-bg"></div>
-    <div class="container">
-      <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
-        <div class="section-tag" style="justify-content:center"><span style="display:none"></span>What Clients Say</div>
-        <h2 class="section-title">Loved by <em>Thousands</em></h2>
+  <!-- Reviews Slider -->
+  <section class="reviews-slider-section" id="reviews">
+    <div class="reviews-header reveal">
+      <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+        target="_blank" class="reviews-stats" data-i18n="reviews_stats_rating">
+        <span>5★</span> rating on over 250+ reviews
+      </a>
+      <h2 class="section-title" data-i18n="reviews_title">What Our <em>Clients</em> Say</h2>
+    </div>
+
+    <div class="marquee-container reveal reveal-delay-1">
+      <div class="marquee">
+        <!-- Review 1 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"First time getting one, I was very nervous. She was very professional and made the
+            whole thing less stressful. Thank you!"</p>
+          <div class="review-footer">
+            <span class="review-author">Sudha</span>
+            <span class="review-date">May 2, 2026</span>
+          </div>
+        </a>
+        <!-- Review 2 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Outstanding. Pryia is talented, professional, caring and the best!!"</p>
+          <div class="review-footer">
+            <span class="review-author">Alicia</span>
+            <span class="review-date">Apr 15, 2026</span>
+          </div>
+        </a>
+        <!-- Review 3 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I have been coming here for over a year and I half and I have a great experience each
+            time."</p>
+          <div class="review-footer">
+            <span class="review-author">Shilpa</span>
+            <span class="review-date">Apr 11, 2026</span>
+          </div>
+        </a>
+        <!-- Review 4 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great service"</p>
+          <div class="review-footer">
+            <span class="review-author">Stephanie</span>
+            <span class="review-date">Apr 11, 2026</span>
+          </div>
+        </a>
+        <!-- Review 5 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great as always. Priya is the best! My husband and I have been getting our eyebrows
+            threaded by her for about a year now and she never misses!"</p>
+          <div class="review-footer">
+            <span class="review-author">Ruby</span>
+            <span class="review-date">Mar 19, 2026</span>
+          </div>
+        </a>
+        <!-- Review 6 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great service. She very fast and did exactly what I asked for."</p>
+          <div class="review-footer">
+            <span class="review-author">Aurora</span>
+            <span class="review-date">Mar 12, 2026</span>
+          </div>
+        </a>
+        <!-- Review 7 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"very fast threading"</p>
+          <div class="review-footer">
+            <span class="review-author">Miladie</span>
+            <span class="review-date">Feb 28, 2026</span>
+          </div>
+        </a>
+        <!-- Review 8 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Went for an eyebrow threading and Priya was great and efficient, highly recommend!"
+          </p>
+          <div class="review-footer">
+            <span class="review-author">Patricia</span>
+            <span class="review-date">Feb 28, 2026</span>
+          </div>
+        </a>
+        <!-- Review 9 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Perfect eyebrows every time"</p>
+          <div class="review-footer">
+            <span class="review-author">Dana</span>
+            <span class="review-date">Feb 26, 2026</span>
+          </div>
+        </a>
+        <!-- Review 10 -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Priya is amazing. She was able to fix my eyebrows and make them look great."</p>
+          <div class="review-footer">
+            <span class="review-author">Jesus</span>
+            <span class="review-date">Feb 19, 2026</span>
+          </div>
+        </a>
+
+        <!-- Duplicate for Marquee -->
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"First time getting one, I was very nervous. She was very professional and made the
+            whole thing less stressful. Thank you!"</p>
+          <div class="review-footer">
+            <span class="review-author">Sudha</span>
+            <span class="review-date">May 2, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Outstanding. Pryia is talented, professional, caring and the best!!"</p>
+          <div class="review-footer">
+            <span class="review-author">Alicia</span>
+            <span class="review-date">Apr 15, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I have been coming here for over a year and I half and I have a great experience each
+            time."</p>
+          <div class="review-footer">
+            <span class="review-author">Shilpa</span>
+            <span class="review-date">Apr 11, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great service"</p>
+          <div class="review-footer">
+            <span class="review-author">Stephanie</span>
+            <span class="review-date">Apr 11, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great as always. Priya is the best! My husband and I have been getting our eyebrows
+            threaded by her for about a year now and she never misses!"</p>
+          <div class="review-footer">
+            <span class="review-author">Ruby</span>
+            <span class="review-date">Mar 19, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great service. She very fast and did exactly what I asked for."</p>
+          <div class="review-footer">
+            <span class="review-author">Aurora</span>
+            <span class="review-date">Mar 12, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"very fast threading"</p>
+          <div class="review-footer">
+            <span class="review-author">Miladie</span>
+            <span class="review-date">Feb 28, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Went for an eyebrow threading and Priya was great and efficient, highly recommend!"
+          </p>
+          <div class="review-footer">
+            <span class="review-author">Patricia</span>
+            <span class="review-date">Feb 28, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Perfect eyebrows every time"</p>
+          <div class="review-footer">
+            <span class="review-author">Dana</span>
+            <span class="review-date">Feb 26, 2026</span>
+          </div>
+        </a>
+        <a href="https://booksy.com/en-us/470231_estheva-aesthetics-by-priya_skin-care_103876_seaside#reviews-section"
+          target="_blank" class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Priya is amazing. She was able to fix my eyebrows and make them look great."</p>
+          <div class="review-footer">
+            <span class="review-author">Jesus</span>
+            <span class="review-date">Feb 19, 2026</span>
+          </div>
+        </a>
       </div>
-      <div class="trust-grid">
-        <div class="trust-card reveal reveal-delay-1">
-          <div class="trust-stars">★★★★★</div>
-          <p class="trust-text">"The best threading I've ever had. So precise and gentle — my eyebrows have never looked
-            better!"</p>
-          <div class="trust-author">
-            <div class="trust-avatar">SL</div>
-            <div>
-              <div class="trust-name">Sarah L.</div>
-              <div class="trust-role">Regular Client</div>
-            </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:4rem" class="reveal">
+        <div class="section-tag" style="justify-content:center" data-i18n="faq_tag">FAQ</div>
+        <h2 class="section-title" data-i18n="faq_title">Common <em>Questions</em></h2>
+        <p class="section-subtitle" data-i18n="faq_subtitle">Find answers to frequently asked questions about our
+          services and booking.</p>
+      </div>
+      <div class="faq-grid reveal reveal-delay-1">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q1">What services does Estheva Aesthetics offer?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faq_a1">
+            Estheva Aesthetics offers a wide range of premium services including Eyebrow Threading, Body Waxing, Skin
+            Treatments (Facials), Henna Art, Therapeutic Massage, and Sugaring.
           </div>
         </div>
-        <div class="trust-card reveal reveal-delay-2">
-          <div class="trust-stars">★★★★★</div>
-          <p class="trust-text">"Love the henna work — beautiful intricate designs that lasted for weeks. Everyone was
-            asking where I got it done."</p>
-          <div class="trust-author">
-            <div class="trust-avatar">MP</div>
-            <div>
-              <div class="trust-name">Maria P.</div>
-              <div class="trust-role">Henna Client</div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q2">Where is Estheva Aesthetics located?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faq_a2">
+            We are located in Seaside, California, serving the local community and surrounding areas with expert
+            aesthetic care.
           </div>
         </div>
-        <div class="trust-card reveal reveal-delay-3">
-          <div class="trust-stars">★★★★★</div>
-          <p class="trust-text">"Clean, professional, and so welcoming. The waxing was quick and virtually painless.
-            Highly recommend!"</p>
-          <div class="trust-author">
-            <div class="trust-avatar">JR</div>
-            <div>
-              <div class="trust-name">James R.</div>
-              <div class="trust-role">Monthly Visitor</div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q3">How can I book an appointment?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faq_a3">
+            You can easily book an appointment online through our Booksy link found in the header and throughout the
+            website, or by calling us directly.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q4">What is eyebrow threading?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faq_a4">
+            Eyebrow threading is an ancient Asian technique for precise eyebrow shaping and hair removal. It is kinder
+            to the skin than alternative methods and leads to finer, softer re-growth; shaped to complement your facial
+            features.
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Script for FAQ -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 
   <!-- Contact -->
   <section class="contact section" id="contact">
@@ -2182,9 +3036,10 @@
     <div class="container">
       <div class="contact-grid">
         <div class="reveal">
-          <div class="section-tag">Get In Touch</div>
-          <h2 class="section-title">Visit <em>Estheva</em></h2>
-          <p class="section-subtitle">We'd love to welcome you. Walk-ins are accepted, but booking ahead guarantees your
+          <div class="section-tag" data-i18n="contact_tag">Get In Touch</div>
+          <h2 class="section-title" data-i18n="contact_title">Visit <em>Estheva</em></h2>
+          <p class="section-subtitle" data-i18n="contact_desc">We'd love to welcome you. Walk-ins are accepted, but
+            booking ahead guarantees your
             spot.</p>
           <div class="contact-info">
             <div class="contact-item">
@@ -2214,15 +3069,15 @@
             <div class="hours-grid">
               <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time closed">Closed</span>
               </div>
-              <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:30 AM – 6:00
+              <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:00 AM – 6:00
                   PM</span></div>
-              <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:30 AM – 6:00
+              <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:00 AM – 6:00
                   PM</span></div>
-              <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:30 AM – 6:00
+              <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:00 AM – 6:00
                   PM</span></div>
-              <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:30 AM – 6:00
+              <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:00 AM – 6:00
                   PM</span></div>
-              <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:30 AM – 6:00
+              <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 5:00
                   PM</span></div>
               <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span>
               </div>
@@ -2267,13 +3122,44 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-logo">Estheva Aesthetics</span>
-      <span class="footer-copy">© 2026 esthevaaesthetics.com — All rights reserved</span>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">in</a>
-        <a href="#" aria-label="Yelp">y</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <a href="#" class="footer-logo">
+            <img src="estevalogo.png" alt="Estheva Aesthetics Logo" class="footer-logo-img">
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Premium skincare and aesthetic treatments in Seaside,
+            California. Empowering your
+            natural beauty through expertise and care.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="Yelp">y</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_explore">Explore</h4>
+          <ul class="footer-link-list">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#services" data-i18n="nav_services">Services</a></li>
+            <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_legal">Legal</h4>
+          <ul class="footer-link-list">
+            <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer_terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy" data-i18n="footer_copyright">© 2026 esthevaaesthetics.com — All rights reserved</span>
+        <div class="footer-legal-links">
+          <!-- Optional additional bottom links -->
+        </div>
       </div>
     </div>
   </footer>
@@ -2343,20 +3229,6 @@
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Hero Slider
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
-
-    function nextSlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-
-    if (slides.length > 0) {
-      setInterval(nextSlide, 5000);
-    }
-
     // Mobile nav
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
@@ -2387,17 +3259,6 @@
       document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
-
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -2408,6 +3269,23 @@
         }
       });
     });
+
+    // Initialize Language
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+      setLanguage(savedLang);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
   </script>
 </body>
 
